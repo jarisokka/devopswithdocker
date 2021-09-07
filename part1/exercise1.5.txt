@@ -1,0 +1,7 @@
+devopsdockeruh/simple-web-service   ubuntu    4e3362e907d5   5 months ago   83MB
+devopsdockeruh/simple-web-service   alpine    fd312adc88e0   5 months ago   15.7MB
+
+commands:
+docker run -d -it devopsdockeruh/simple-web-service:alpine
+docker exec -it hungry_williams sh
+tail -f ./text.log
