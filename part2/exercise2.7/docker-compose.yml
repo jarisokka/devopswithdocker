@@ -1,0 +1,28 @@
+version: '3.5' 
+
+services: 
+    front:  
+      image: mopofront
+      build: . 
+      ports:
+        - 3000:3000
+    back:
+      image: mopoback
+      build: . 
+      ports:
+        - 5000:5000
+      volumes:
+        - model:/src/model
+    training:
+      image: mopotraining
+      build: .
+      volumes:
+        - imgs:/src/imgs
+        - model:/src/model
+        - data:/src/data
+
+volumes:
+  imgs:
+  model:
+  data:
+
