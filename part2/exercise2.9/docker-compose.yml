@@ -1,0 +1,36 @@
+version: '3.5' 
+
+services:
+    nginx:
+      image: nginx
+      volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      ports:
+      - 80:80
+    db:
+      image: postgres:13.2-alpine
+      restart: unless-stopped
+      environment:
+        POSTGRES_PASSWORD: example
+        POSTGRES_DB: db
+      container_name: db_test
+      volumes:
+        - ./database:/var/lib/postgresql/data   
+    front:  
+      image: frontend
+      build: . 
+    back:
+      image: backend
+      environment:
+        - REDIS_HOST=redis
+        - POSTGRES_HOST=db
+        - POSTGRES_PASSWORD=example
+        - POSTGRES_DATABASE=db
+      build: . 
+      depends_on:
+      - db
+    redis:
+      image: redis
+      build: .
+      volumes:
+        - ./redis_cache:/data  
