@@ -1,0 +1,5 @@
+Multi-stage for backend using FROM scratch and binary size 12.5MB
+
+856b1657cd6c   3 minutes ago   ENTRYPOINT ["server"]                   0B        buildkit.dockerfile.v0
+<missing>      3 minutes ago   COPY /app/server /usr/bin/ # buildkit   12.5MB    buildkit.dockerfile.v0
+<missing>      5 minutes ago   WORKDIR /app                            0B        buildkit.dockerfile.v0
