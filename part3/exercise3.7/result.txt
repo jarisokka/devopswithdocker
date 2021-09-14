@@ -1,0 +1,38 @@
+image size before 1.24GB
+
+118660d55098   3 minutes ago   CMD ["npm" "start"]                             0B        buildkit.dockerfile.v0
+<missing>      3 minutes ago   COPY . . # buildkit                             1.57MB    buildkit.dockerfile.v0
+<missing>      3 minutes ago   RUN /bin/sh -c npm install # buildkit           330MB     buildkit.dockerfile.v0
+<missing>      4 minutes ago   COPY package.json ./ # buildkit                 808B      buildkit.dockerfile.v0
+<missing>      4 minutes ago   WORKDIR /app                                    0B        buildkit.dockerfile.v0
+<missing>      21 hours ago    /bin/sh -c #(nop)  CMD ["node"]                 0B
+<missing>      21 hours ago    /bin/sh -c #(nop)  ENTRYPOINT ["docker-entry…   0B
+<missing>      21 hours ago    /bin/sh -c #(nop) COPY file:238737301d473041…   116B
+<missing>      21 hours ago    /bin/sh -c set -ex   && for key in     6A010…   7.57MB
+<missing>      21 hours ago    /bin/sh -c #(nop)  ENV YARN_VERSION=1.22.5      0B
+<missing>      21 hours ago    /bin/sh -c ARCH= && dpkgArch="$(dpkg --print…   96MB
+<missing>      21 hours ago    /bin/sh -c #(nop)  ENV NODE_VERSION=16.9.1      0B
+<missing>      11 days ago     /bin/sh -c groupadd --gid 1000 node   && use…   334kB
+<missing>      11 days ago     /bin/sh -c set -ex;  apt-get update;  apt-ge…   510MB
+<missing>      11 days ago     /bin/sh -c apt-get update && apt-get install…   146MB
+<missing>      11 days ago     /bin/sh -c set -ex;  if ! command -v gpg > /…   17.5MB
+<missing>      11 days ago     /bin/sh -c set -eux;  apt-get update;  apt-g…   16.5MB
+<missing>      11 days ago     /bin/sh -c #(nop)  CMD ["bash"]                 0B
+<missing>      11 days ago     /bin/sh -c #(nop) ADD file:948d0998410ef6681…   114MB
+
+image size after 122MB
+
+c9425152adb1   6 minutes ago   CMD ["serve" "-s" "build"]                      0B        buildkit.dockerfile.v0
+<missing>      6 minutes ago   USER appuser                                    0B        buildkit.dockerfile.v0
+<missing>      6 minutes ago   RUN /bin/sh -c npm install -g serve # buildk…   8.62MB    buildkit.dockerfile.v0
+<missing>      7 minutes ago   RUN /bin/sh -c adduser -D appuser # buildkit    4.84kB    buildkit.dockerfile.v0
+<missing>      7 minutes ago   COPY /usr/src/app/build /build # buildkit       515kB     buildkit.dockerfile.v0
+<missing>      21 hours ago    /bin/sh -c #(nop)  CMD ["node"]                 0B
+<missing>      21 hours ago    /bin/sh -c #(nop)  ENTRYPOINT ["docker-entry…   0B
+<missing>      21 hours ago    /bin/sh -c #(nop) COPY file:238737301d473041…   116B
+<missing>      21 hours ago    /bin/sh -c apk add --no-cache --virtual .bui…   7.76MB
+<missing>      21 hours ago    /bin/sh -c #(nop)  ENV YARN_VERSION=1.22.5      0B
+<missing>      21 hours ago    /bin/sh -c addgroup -g 1000 node     && addu…   99.7MB
+<missing>      21 hours ago    /bin/sh -c #(nop)  ENV NODE_VERSION=16.9.1      0B
+<missing>      13 days ago     /bin/sh -c #(nop)  CMD ["/bin/sh"]              0B
+<missing>      13 days ago     /bin/sh -c #(nop) ADD file:ecdfb91a737d6c292…   5.61MB
