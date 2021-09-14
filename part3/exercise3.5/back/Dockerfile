@@ -1,0 +1,18 @@
+  
+FROM golang:alpine
+
+EXPOSE 8080
+
+WORKDIR /usr/src/app
+
+COPY . .
+
+ENV REQUEST_ORIGIN=http://localhost:5000
+
+RUN go build
+
+RUN adduser -D appuser
+
+USER appuser
+
+CMD ["./server"]

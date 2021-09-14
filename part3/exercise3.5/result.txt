@@ -1,0 +1,96 @@
+backend with golang:1.16 size 1.07GB
+
+0d88378e77b7   About a minute ago   CMD ["./server"]                                0B        buildkit.dockerfile.v0
+<missing>      About a minute ago   USER appuser                                    0B        buildkit.dockerfile.v0
+<missing>      About a minute ago   RUN /bin/sh -c useradd -m appuser # buildkit    334kB     buildkit.dockerfile.v0
+<missing>      About a minute ago   RUN /bin/sh -c go build # buildkit              146MB     buildkit.dockerfile.v0
+<missing>      About a minute ago   ENV REQUEST_ORIGIN=http://localhost:5000        0B        buildkit.dockerfile.v0
+<missing>      About a minute ago   COPY . . # buildkit                             30.1kB    buildkit.dockerfile.v0
+<missing>      4 days ago           WORKDIR /usr/src/app                            0B        buildkit.dockerfile.v0
+<missing>      4 days ago           EXPOSE map[8080/tcp:{}]                         0B        buildkit.dockerfile.v0
+<missing>      4 days ago           /bin/sh -c #(nop) WORKDIR /go                   0B
+<missing>      4 days ago           /bin/sh -c mkdir -p "$GOPATH/src" "$GOPATH/b…   0B
+<missing>      4 days ago           /bin/sh -c #(nop)  ENV PATH=/go/bin:/usr/loc…   0B
+<missing>      4 days ago           /bin/sh -c #(nop)  ENV GOPATH=/go               0B
+<missing>      4 days ago           /bin/sh -c set -eux;  arch="$(dpkg --print-a…   386MB
+<missing>      4 days ago           /bin/sh -c #(nop)  ENV GOLANG_VERSION=1.16.8    0B
+<missing>      10 days ago          /bin/sh -c #(nop)  ENV PATH=/usr/local/go/bi…   0B
+<missing>      10 days ago          /bin/sh -c set -eux;  apt-get update;  apt-g…   227MB
+<missing>      11 days ago          /bin/sh -c apt-get update && apt-get install…   152MB
+<missing>      11 days ago          /bin/sh -c set -ex;  if ! command -v gpg > /…   18.9MB
+<missing>      11 days ago          /bin/sh -c set -eux;  apt-get update;  apt-g…   10.7MB
+<missing>      11 days ago          /bin/sh -c #(nop)  CMD ["bash"]                 0B
+<missing>      11 days ago          /bin/sh -c #(nop) ADD file:1fedf68870782f1b4…   124MB
+
+backend with golang:alpine size 467MB (no other tweaks)
+
+a4f35506654b   4 minutes ago   CMD ["./server"]                                0B        buildkit.dockerfile.v0
+<missing>      4 minutes ago   USER appuser                                    0B        buildkit.dockerfile.v0
+<missing>      4 minutes ago   RUN /bin/sh -c adduser -D appuser # buildkit    4.68kB    buildkit.dockerfile.v0
+<missing>      5 minutes ago   RUN /bin/sh -c go build # buildkit              152MB     buildkit.dockerfile.v0
+<missing>      5 minutes ago   ENV REQUEST_ORIGIN=http://localhost:5000        0B        buildkit.dockerfile.v0
+<missing>      5 minutes ago   COPY . . # buildkit                             30.1kB    buildkit.dockerfile.v0
+<missing>      19 hours ago    WORKDIR /usr/src/app                            0B        buildkit.dockerfile.v0
+<missing>      19 hours ago    EXPOSE map[8080/tcp:{}]                         0B        buildkit.dockerfile.v0
+<missing>      4 days ago      /bin/sh -c #(nop) WORKDIR /go                   0B
+<missing>      4 days ago      /bin/sh -c mkdir -p "$GOPATH/src" "$GOPATH/b…   0B
+<missing>      4 days ago      /bin/sh -c #(nop)  ENV PATH=/go/bin:/usr/loc…   0B
+<missing>      4 days ago      /bin/sh -c #(nop)  ENV GOPATH=/go               0B        
+<missing>      4 days ago      /bin/sh -c set -eux;  apk add --no-cache --v…   309MB
+<missing>      4 days ago      /bin/sh -c #(nop)  ENV GOLANG_VERSION=1.17.1    0B
+<missing>      2 weeks ago     /bin/sh -c #(nop)  ENV PATH=/usr/local/go/bi…   0B
+<missing>      2 weeks ago     /bin/sh -c [ ! -e /etc/nsswitch.conf ] && ec…   17B
+<missing>      2 weeks ago     /bin/sh -c apk add --no-cache ca-certificates   513kB
+<missing>      2 weeks ago     /bin/sh -c #(nop)  CMD ["/bin/sh"]              0B
+<missing>      2 weeks ago     /bin/sh -c #(nop) ADD file:aad4290d27580cc1a…   5.6MB
+
+
+
+frontend with node size 1.2GB
+
+e359d881f1e1   About a minute ago   CMD ["serve" "-s" "-l" "5000" "build"]          0B        buildkit.dockerfile.v0
+<missing>      About a minute ago   USER appuser                                    0B        buildkit.dockerfile.v0
+<missing>      About a minute ago   RUN /bin/sh -c useradd -m appuser # buildkit    334kB     buildkit.dockerfile.v0
+<missing>      About a minute ago   RUN /bin/sh -c npm install -g serve # buildk…   5.38MB    buildkit.dockerfile.v0
+<missing>      About a minute ago   RUN /bin/sh -c npm run build # buildkit         8.68MB    buildkit.dockerfile.v0
+<missing>      About a minute ago   ENV REACT_APP_BACKEND_URL=http://localhost:8…   0B        buildkit.dockerfile.v0
+<missing>      About a minute ago   RUN /bin/sh -c npm install # buildkit           279MB     buildkit.dockerfile.v0
+<missing>      2 minutes ago        COPY . . # buildkit                             725kB     buildkit.dockerfile.v0
+<missing>      2 minutes ago        WORKDIR /usr/src/app                            0B        buildkit.dockerfile.v0
+<missing>      2 minutes ago        EXPOSE map[5000/tcp:{}]                         0B        buildkit.dockerfile.v0
+<missing>      18 hours ago         /bin/sh -c #(nop)  CMD ["node"]                 0B
+<missing>      18 hours ago         /bin/sh -c #(nop)  ENTRYPOINT ["docker-entry…   0B
+<missing>      18 hours ago         /bin/sh -c #(nop) COPY file:238737301d473041…   116B
+<missing>      18 hours ago         /bin/sh -c set -ex   && for key in     6A010…   7.57MB
+<missing>      18 hours ago         /bin/sh -c #(nop)  ENV YARN_VERSION=1.22.5      0B
+<missing>      18 hours ago         /bin/sh -c ARCH= && dpkgArch="$(dpkg --print…   96MB
+<missing>      18 hours ago         /bin/sh -c #(nop)  ENV NODE_VERSION=16.9.1      0B
+<missing>      11 days ago          /bin/sh -c groupadd --gid 1000 node   && use…   334kB
+<missing>      11 days ago          /bin/sh -c set -ex;  apt-get update;  apt-ge…   510MB
+<missing>      11 days ago          /bin/sh -c apt-get update && apt-get install…   146MB
+<missing>      11 days ago          /bin/sh -c set -ex;  if ! command -v gpg > /…   17.5MB
+<missing>      11 days ago          /bin/sh -c set -eux;  apt-get update;  apt-g…   16.5MB
+<missing>      11 days ago          /bin/sh -c #(nop)  CMD ["bash"]                 0B
+<missing>      11 days ago          /bin/sh -c #(nop) ADD file:948d0998410ef6681…   114MB
+
+frontend with node:alpine size 407MB (no other tweaks)
+
+2d652971603c   About a minute ago   CMD ["serve" "-s" "-l" "5000" "build"]          0B        buildkit.dockerfile.v0
+<missing>      About a minute ago   USER appuser                                    0B        buildkit.dockerfile.v0
+<missing>      About a minute ago   RUN /bin/sh -c adduser -D appuser # buildkit    4.84kB    buildkit.dockerfile.v0
+<missing>      About a minute ago   RUN /bin/sh -c npm install -g serve # buildk…   5.38MB    buildkit.dockerfile.v0
+<missing>      About a minute ago   RUN /bin/sh -c npm run build # buildkit         8.68MB    buildkit.dockerfile.v0
+<missing>      About a minute ago   ENV REACT_APP_BACKEND_URL=http://localhost:8…   0B        buildkit.dockerfile.v0
+<missing>      About a minute ago   RUN /bin/sh -c npm install # buildkit           279MB     buildkit.dockerfile.v0
+<missing>      3 minutes ago        COPY . . # buildkit                             725kB     buildkit.dockerfile.v0
+<missing>      3 minutes ago        WORKDIR /usr/src/app                            0B        buildkit.dockerfile.v0
+<missing>      3 minutes ago        EXPOSE map[5000/tcp:{}]                         0B        buildkit.dockerfile.v0
+<missing>      18 hours ago         /bin/sh -c #(nop)  CMD ["node"]                 0B
+<missing>      18 hours ago         /bin/sh -c #(nop)  ENTRYPOINT ["docker-entry…   0B
+<missing>      18 hours ago         /bin/sh -c #(nop) COPY file:238737301d473041…   116B
+<missing>      18 hours ago         /bin/sh -c apk add --no-cache --virtual .bui…   7.76MB
+<missing>      18 hours ago         /bin/sh -c #(nop)  ENV YARN_VERSION=1.22.5      0B
+<missing>      18 hours ago         /bin/sh -c addgroup -g 1000 node     && addu…   99.7MB
+<missing>      18 hours ago         /bin/sh -c #(nop)  ENV NODE_VERSION=16.9.1      0B
+<missing>      13 days ago          /bin/sh -c #(nop)  CMD ["/bin/sh"]              0B
+<missing>      13 days ago          /bin/sh -c #(nop) ADD file:ecdfb91a737d6c292…   5.61MB
